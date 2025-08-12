@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${post.id != null} ? '게시글 수정' : '게시글 작성'"></title>
+</head>
+<body>
+<h1 th:text="${post.id != null} ? '게시글 수정' : '게시글 작성'"></h1>
+
+<form th:action="${post.id != null} ? @{/board/{id}(id=${post.id})} : @{/board}" method="post">
+    <input type="hidden" name="_method" th:value="${post.id != null} ? 'put' : 'post'"/>
+
+    <p>
+        <label>제목:</label><br/>
+        <input type="text" name="title" th:value="${post.title}"/>
+    </p>
+
+    <p>
+        <label>내용:</label><br/>
+        <textarea name="content" rows="10" cols="50" th:text="${post.content}"></textarea>
+    </p>
+
+    <p>
+        <button type="submit" th:text="${post.id != null} ? '수정' : '등록'"></button>
+        <a th:href="@{/board}">취소</a>
+    </p>
+</form>
+</body>
+</html>
