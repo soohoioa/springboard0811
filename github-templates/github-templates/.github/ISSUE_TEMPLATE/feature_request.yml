@@ -1,0 +1,64 @@
+name: "✨ Feature Request"
+description: Propose a new feature or improvement
+title: "[Feat]: <short summary>"
+labels: ["type:feature", "status:triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new feature! Please describe the problem and the proposed solution.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / Motivation
+      description: What user problem are we trying to solve?
+      placeholder: ex) 타임리프 기반 게시판을 React + REST API로 전환 필요
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Solution
+      description: Describe the change at a high level
+      placeholder: ex) /api/v1/boards CRUD REST API 구현, React SPA 라우팅 구성 등
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What is in / out of scope?
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Clear criteria for completion (Given/When/Then preferred)
+      placeholder: |
+        - [ ] Given ... When ... Then ...
+        - [ ] API 스펙 문서화 (Swagger)
+        - [ ] 단위/통합 테스트 80%+
+  - type: textarea
+    id: design
+    attributes:
+      label: Design / API / ERD
+      description: Include API contracts, schemas, wireframes, ERD changes
+  - type: textarea
+    id: risk
+    attributes:
+      label: Risks / Impact
+      description: Security, performance, backwards compatibility
+  - type: textarea
+    id: deps
+    attributes:
+      label: Dependencies
+      description: Related issues/PRs, external services
+  - type: checkboxes
+    id: check
+    attributes:
+      label: Pre-Submission Checklist
+      options:
+        - label: 유사/중복 이슈 검색 완료
+          required: true
+        - label: 수용기준 및 영향을 검토함
+          required: true

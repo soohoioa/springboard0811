@@ -1,0 +1,25 @@
+name: "📝 Docs"
+description: Documentation updates
+title: "[Docs]: <short summary>"
+labels: ["type:docs"]
+assignees: []
+body:
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      placeholder: ex) README 개선, API 문서 업데이트, 아키텍처 다이어그램 추가
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What needs to change and why?
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: 링크/이미지 경로 확인
+        - label: 버전 및 날짜 최신화
