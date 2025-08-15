@@ -15,6 +15,7 @@ import com.project.board0811.dto.response.UserSummaryResponseDto;
 import com.project.board0811.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
