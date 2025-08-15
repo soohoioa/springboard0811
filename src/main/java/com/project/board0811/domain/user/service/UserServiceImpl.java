@@ -84,22 +84,25 @@ public class UserServiceImpl implements UserService {
         User target = getUserOrThrow(id);
         User editor = getUserOrThrow(editorUserId);
 
-        checkSelfOrAdmin(target, editor); // 본인 또는 관리자만
+        // 본인 또는 관리자만 프로필 수정 가능
+        checkSelfOrAdmin(target, editor);
 
-        // 중복 이메일 방지 (이메일을 변경하는 경우)
+        // 이메일 중복 방지 (이메일 변경 요청이 있을 때만)
         if (request.getEmail() != null && !request.getEmail().isBlank()) {
-            // 동일 유저의 기존 이메일 변경이 아니라면 존재 체크
             userRepository.findByEmail(request.getEmail())
                     .filter(found -> !Objects.equals(found.getId(), target.getId()))
                     .ifPresent(found -> { throw new CustomException(ErrorCode.DUPLICATE_VALUE); });
         }
 
-        // 권한/상태는 관리자 권한에서만 변경 허용
+        // 1) 프로필(name/email) 반영
+        request.applyProfile(target);
+
+        // 2) role/status는 관리자만 반영
         if (request.getRole() != null || request.getStatus() != null) {
-            checkAdmin(editor);
+            checkAdmin(editor);          // 관리자 아니면 FORBIDDEN
+            request.applyAdminOnly(target);
         }
 
-        request.applyTo(target); // 이름/이메일/역할/상태 변경
         return UserResponseDto.from(target);
     }
 
