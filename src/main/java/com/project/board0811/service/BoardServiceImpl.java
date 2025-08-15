@@ -1,8 +1,6 @@
 package com.project.board0811.service;
 
 import com.project.board0811.domain.Board;
-import com.project.board0811.dto.BoardRequestDto;
-import com.project.board0811.dto.BoardResponseDto;
 import com.project.board0811.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

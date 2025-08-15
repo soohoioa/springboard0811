@@ -1,8 +1,5 @@
 package com.project.board0811.service;
 
-import com.project.board0811.dto.BoardRequestDto;
-import com.project.board0811.dto.BoardResponseDto;
-
 import java.util.List;
 
 public interface BoardService {

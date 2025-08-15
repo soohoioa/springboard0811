@@ -1,10 +1,7 @@
 package com.project.board0811.controller;
 
-import com.project.board0811.dto.BoardRequestDto;
-import com.project.board0811.dto.BoardResponseDto;
 import com.project.board0811.service.BoardService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
