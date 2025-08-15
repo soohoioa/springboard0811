@@ -1,8 +1,8 @@
 ---
 name: "[Feature] 제목 작성"
-about: Suggest an idea for this project
-title: ''
-labels: ''
+about: 새로운 기능을 제안하거나 개선 사항을 요청합니다.
+title: "[Feature] 제목 작성"
+labels: Feature
 assignees: ''
 
 ---
