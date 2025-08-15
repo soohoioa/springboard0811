@@ -1,3 +1,12 @@
+---
+name: 기능 추가 요청
+about: 새로운 기능을 제안하거나 개선 사항을 요청합니다.
+title: "[Feature] 제목 작성"
+labels: Feature
+assignees: ''
+
+---
+
 ## ✨ 기능 설명
 요청하시는 기능에 대해 간단히 설명해주세요.
 
