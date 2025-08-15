@@ -1,0 +1,32 @@
+name: "🧰 Task / Chore"
+description: Non-feature work (refactor, build, CI/CD, docs)
+title: "[Chore]: <short summary>"
+labels: ["type:chore", "status:triage"]
+assignees: []
+body:
+  - type: textarea
+    id: desc
+    attributes:
+      label: Description
+      placeholder: ex) 패키지 구조 리팩토링, DTO 분리, GlobalExceptionHandler 확장
+    validations:
+      required: true
+  - type: textarea
+    id: plan
+    attributes:
+      label: Plan
+      placeholder: |
+        - [ ] 1. ...
+        - [ ] 2. ...
+  - type: textarea
+    id: risk
+    attributes:
+      label: Risks / Rollback Plan
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: 영향 범위 파악 (서비스 중단 없음)
+        - label: 단위 테스트/빌드 확인
+        - label: 문서/CHANGELOG 업데이트

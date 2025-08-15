@@ -1,0 +1,82 @@
+name: "🐛 Bug Report"
+description: Report a reproducible problem in the board project
+title: "[Bug]: <short summary>"
+labels: ["type:bug", "status:triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out a bug report! Please include as much detail as possible.
+  - type: input
+    id: context
+    attributes:
+      label: Context
+      description: What were you trying to do? Which module is affected? (e.g., backend, frontend, CI/CD)
+      placeholder: ex) 게시판 글 작성 기능 / backend
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Provide step-by-step instructions
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      placeholder: ex) 저장 버튼 클릭 시 201 Created와 함께 게시글이 생성되어야 함
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      placeholder: ex) 500 Internal Server Error와 함께 DB 예외 발생
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - critical (서비스 중단/데이터 손실)
+        - high (핵심 기능 영향)
+        - medium (일부 기능 영향)
+        - low (UI/사소한 이슈)
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: ex) macOS 14 / JDK 21 / Node 20 / Chrome 126
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: App version / commit hash / backend, frontend versions
+      placeholder: ex) backend a1b2c3d, frontend e4f5g6h
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Stacktrace
+      description: Attach logs or errors
+      render: bash
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots / Screen Recording
+      description: Drag and drop images or videos to help explain the problem
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Notes
+      description: Any other context
