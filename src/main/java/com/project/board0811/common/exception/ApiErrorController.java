@@ -46,7 +46,7 @@ public class ApiErrorController implements ErrorController {
             case 400 -> ErrorCode.INVALID_ARGUMENT;
             case 401 -> ErrorCode.UNAUTHORIZED;
             case 403 -> ErrorCode.FORBIDDEN;
-            case 404 -> ErrorCode.NOT_FOUND;            // ✅ 404를 공통 포맷으로 변환
+            case 404 -> ErrorCode.NOT_FOUND;            // 404를 공통 포맷으로 변환
             case 405 -> ErrorCode.METHOD_NOT_ALLOWED;
             case 409 -> ErrorCode.DATA_INTEGRITY_VIOLATION;
             default -> ErrorCode.INTERNAL_SERVER_ERROR;

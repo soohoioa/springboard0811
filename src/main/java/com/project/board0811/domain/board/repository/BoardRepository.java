@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -45,14 +46,14 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
     int increaseViewCount(@Param("id") Long id); // 본문/제목 없이 조회수만 안전하게 증가
 
     @Modifying(clearAutomatically = true, flushAutomatically = true)
+    @Transactional
     @Query("""
-           update Board b
-              set b.status = com.project.board0811.domain.enums.BoardStatus.DELETED,
-                  b.deletedAt = current_timestamp
-            where b.id = :id
-              and b.status <> com.project.board0811.domain.enums.BoardStatus.DELETED
-           """)
-    int softDeleteById(@Param("id") Long id); // 소프트 삭제(상태 전환 + deletedAt 기록)
+        update Board b
+           set b.status = :status,
+               b.updatedAt = CURRENT_TIMESTAMP
+         where b.id = :id
+        """)
+    int softDeleteById(@Param("id") Long id, @Param("status") BoardStatus status);
 
     boolean existsByIdAndAuthor_Id(Long id, Long authorId); // 작성자 소유 여부 체크 (권한 확인에 사용)
 }

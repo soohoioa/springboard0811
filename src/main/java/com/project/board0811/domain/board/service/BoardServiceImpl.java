@@ -111,7 +111,8 @@ public class BoardServiceImpl implements BoardService {
         checkOwnershipOrAdmin(board, requester);
 
         // 상태 전환 + deletedAt 기록 (쿼리)
-        if (boardRepository.softDeleteById(id) == 0) {
+        int updatedRows = boardRepository.softDeleteById(id, BoardStatus.DELETED);
+        if (updatedRows == 0) {
             // 이미 삭제되었거나 대상 아님 → 논리적으로는 Not Found 취급
             throw new CustomException(ErrorCode.BOARD_NOT_FOUND);
         }
