@@ -30,8 +30,18 @@ public enum ErrorCode implements BaseErrorCode {
 
     // ===== 도메인 예시 =====
     USER_NOT_FOUND("USER-404", "해당 사용자를 찾을 수 없습니다.", HttpStatus.NOT_FOUND),
-    BOARD_NOT_FOUND("BOARD-404", "게시글을 찾을 수 없습니다.", HttpStatus.NOT_FOUND)
-    ;
+    BOARD_NOT_FOUND("BOARD-404", "게시글을 찾을 수 없습니다.", HttpStatus.NOT_FOUND),
+
+    // ===== 댓글(Comment) =====
+    COMMENT_PARENT_REQUIRED("COMMENT-400-PARENT", "답글 생성 시 부모 댓글이 필요합니다.", HttpStatus.BAD_REQUEST),
+    COMMENT_INVALID_DEPTH("COMMENT-400-DEPTH", "답글은 루트 댓글(depth=0)에만 작성할 수 있습니다.", HttpStatus.BAD_REQUEST),
+    COMMENT_BOARD_MISMATCH("COMMENT-400-BOARD", "부모 댓글은 동일한 게시글에 속해야 합니다.", HttpStatus.BAD_REQUEST),
+    COMMENT_CONTENT_EMPTY("COMMENT-400-CONTENT_EMPTY", "댓글 내용은 비어 있을 수 없습니다.", HttpStatus.BAD_REQUEST),
+    COMMENT_CONTENT_TOO_LONG("COMMENT-400-CONTENT_LENGTH", "댓글 내용은 2000자를 초과할 수 없습니다.", HttpStatus.BAD_REQUEST),
+    COMMENT_ALREADY_DELETED("COMMENT-400-DELETED", "삭제된 댓글은 수정할 수 없습니다.", HttpStatus.BAD_REQUEST),
+    COMMENT_BOARD_REQUIRED("COMMENT-400-BOARD_REQUIRED", "게시글 정보는 필수입니다.", HttpStatus.BAD_REQUEST),
+    COMMENT_AUTHOR_REQUIRED("COMMENT-400-AUTHOR_REQUIRED", "작성자 정보는 필수입니다.", HttpStatus.BAD_REQUEST),
+    COMMENT_NOT_FOUND("COMMENT-404", "댓글을 찾을 수 없습니다.", HttpStatus.NOT_FOUND);
 
     private final String code;
     private final String message;
